@@ -1,27 +1,34 @@
 package Entidades;
 
+import uy.edu.um.prog2.adt.LinkedList.MyLinkedListImpl;
+
+import java.time.LocalDate;
+
 public class Tweet {
 
     private long id;
     private String content;
     private String source;
+    private float numFavourites;
     private boolean isRetweet;
+    private boolean verified;
+    private LocalDate date;
 
-    public User getUser() {
-        return user;
-    }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+    private MyLinkedListImpl<HashTag> hastagLinkedList = new MyLinkedListImpl<>();
 
-    private User user;
-
-    public Tweet(long id, String content, String source, boolean isRetweet, User user) {
+    public Tweet(long id, String content, String source, boolean isRetweet, boolean verified, float numFavourites,LocalDate date) {
         this.id = id;
         this.content = content;
         this.source = source;
+        this.numFavourites = numFavourites;
         this.isRetweet = isRetweet;
+        this.verified = verified;
+        this.date = date;
+    }
+
+    public MyLinkedListImpl<HashTag> getHashtagLinkedList() {
+        return hastagLinkedList;
     }
 
     public long getId() {
