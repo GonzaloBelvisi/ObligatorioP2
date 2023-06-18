@@ -1,12 +1,15 @@
 package uy.edu.um.prog2.adt.LinkedList;
 
-
 public class MyLinkedListImpl <T> implements MyLinkedList<T> {
 
-    private NodeLinkedList<T> head;
+    NodeLinkedList<T> head;
+
+    private int size;
 
     public MyLinkedListImpl(){
         this.head = null;
+        this.size =0;
+
     }
 
     public MyLinkedListImpl(T value){
@@ -16,6 +19,7 @@ public class MyLinkedListImpl <T> implements MyLinkedList<T> {
     public void add(T value) {
         if (this.head == null){
             this.head = new NodeLinkedList<>(value);
+            size++;
         }
         else {
             NodeLinkedList<T> newNode = this.head;
@@ -23,8 +27,10 @@ public class MyLinkedListImpl <T> implements MyLinkedList<T> {
                 newNode = newNode.getNext();
             }
             newNode.setNext(new NodeLinkedList(value));
+            size++;
         }
     }
+
 
     @Override
     public boolean remove(int position) {
@@ -49,7 +55,7 @@ public class MyLinkedListImpl <T> implements MyLinkedList<T> {
 
     @Override
     public T get(int position) {
-        if (position > getSize()){
+        if (position >= getSize()){
             return null;
         }
         else {
@@ -72,16 +78,7 @@ public class MyLinkedListImpl <T> implements MyLinkedList<T> {
 
     @Override
     public int getSize() {
-        int count = 0;
-        NodeLinkedList<T> newNode = this.head;
-        if (this.head == null){
-            return 0;
-        }
-        while (newNode != null) {
-            newNode = newNode.getNext();
-            count = count + 1;
-        }
-        return count;
+        return size;
     }
 
     @Override
@@ -100,11 +97,13 @@ public class MyLinkedListImpl <T> implements MyLinkedList<T> {
     public void addFirst(T value) {
         if (head == null){
             head = new NodeLinkedList(value);
+            size++;
         }
         else {
             NodeLinkedList<T> NewAddNode = this.head;
             head = new NodeLinkedList(value);
             head.setNext(NewAddNode);
+            size++;
         }
     }
 
@@ -113,4 +112,5 @@ public class MyLinkedListImpl <T> implements MyLinkedList<T> {
         add(value);
 
     }
+
 }

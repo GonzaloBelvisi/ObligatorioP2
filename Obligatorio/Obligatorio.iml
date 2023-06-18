@@ -9,5 +9,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="TADs" />
     <orderEntry type="library" name="opencsv" level="project" />
+    <orderEntry type="library" name="apache.commons.csv" level="project" />
   </component>
 </module>

@@ -20,6 +20,7 @@ public class MyArrayListImpl <T> implements MyArrayList<T> {
         if(value!=null) {
             if(size == length){
                 T[] newlist = (T[]) new Object[2*length];
+                length = 2*length;
                 for(int i = 0; i < size; i ++){
                     newlist[i] = list[i];
                 }

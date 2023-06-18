@@ -127,6 +127,10 @@ public class MyClosedHashImpl <K, V> implements MyHash<K, V> {
         return get(key);
     }
 
+    public MyArrayList<K> getKeyList() {
+        return KeyList;
+    }
+
     public K ArrayListKey (int positionArrayList){
         return KeyList.get(positionArrayList);
     }
