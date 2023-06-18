@@ -124,4 +124,10 @@ public class MyClosedHashImpl2<K, V> {
     public int getCurrentSize() {
         return currentSize;
     }
+
+    public MyArrayListImpl getPosition(int position){
+        K key = KeyList.get(position);
+        return getAll(key);
+    }
+
 }

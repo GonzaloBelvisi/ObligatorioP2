@@ -109,6 +109,19 @@ public class Main {
                     break;
 
                 case 6:
+                    System.out.println("Cantidad de tweets con una palabra o frase específicos: ");
+                    System.out.print("Ingrese la palbra o frase: ");
+                    String input = scanner.nextLine();
+
+                    startTime = System.currentTimeMillis();
+
+                    f1Registry.printNumberOfOccurences(input);
+
+                    endTime = System.currentTimeMillis();
+                    System.out.println("Program Initialization Time:" + ((endTime - startTime)/1000.0) +"s");
+                    break;
+
+                case 7:
                     System.out.println("Exiting...");
                     break;
                 default:
@@ -119,7 +132,7 @@ public class Main {
             }
 
             System.out.println();
-        } while (choice != 6);
+        } while (choice != 7);
 
         scanner.close();
     }

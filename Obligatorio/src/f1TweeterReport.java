@@ -7,7 +7,6 @@ import org.apache.commons.csv.CSVRecord;
 import uy.edu.um.prog2.adt.ArrayList.MyArrayListImpl;
 import uy.edu.um.prog2.adt.Hash.MyClosedHashImpl;
 import uy.edu.um.prog2.adt.Hash2.MyClosedHashImpl2;
-import uy.edu.um.prog2.adt.LinkedList.MyLinkedListImpl;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -25,7 +24,8 @@ public class f1TweeterReport {
     MyClosedHashImpl<String, activePilot> activePilotsHash = new MyClosedHashImpl(100);
     MyClosedHashImpl<String, User> userRegistryHash = new MyClosedHashImpl<>(20000);
     MyClosedHashImpl2<LocalDate, Tweet> TweetRegistryHash = new MyClosedHashImpl2<>(200000);
-    MyLinkedListImpl<User> topUsersTweets = new MyLinkedListImpl<>();
+
+    MyArrayListImpl<Tweet> allTweetMyArrayList = new MyArrayListImpl<>(200000);
 
 
     public void parse(){
@@ -96,6 +96,7 @@ public class f1TweeterReport {
                     userRegistryHash.get(nextRow[1]).getTweets().addFirst(tweet);
 
                     TweetRegistryHash.put(date,tweet);
+                    allTweetMyArrayList.add(tweet);
                     count++;
 
                 } catch (Exception e){
@@ -305,6 +306,24 @@ public class f1TweeterReport {
         }
         return Top7;
     }
+
+    private int numberOfOccurences(String input){
+
+        int Occurences = 0;
+
+        for (int i = 0; i < allTweetMyArrayList.size(); i++) {
+            Tweet currentTweet = this.allTweetMyArrayList.get(i);
+            if (currentTweet.getContent().contains(input)){Occurences++;}
+        }
+
+        return Occurences;
+    }
+
+    public void printNumberOfOccurences(String input){
+        int Occurences = numberOfOccurences(input);
+        System.out.println("Numero de occurencias para la frase o palabra: "+input + " : "+ Occurences);
+    }
+
     public void printCantidadHashtags(String ano, String mes, String dia){
         int cantidad = cantidadHashtags(ano,mes,dia);
         System.out.println("Cantidad de Hashtags distintos: "+cantidad );
@@ -362,6 +381,7 @@ public class f1TweeterReport {
 
         }
     }
+
 
 
 
