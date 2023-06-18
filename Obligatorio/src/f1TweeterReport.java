@@ -21,11 +21,11 @@ import java.time.format.DateTimeParseException;
 
 public class f1TweeterReport {
 
-    MyClosedHashImpl<String, activePilot> activePilotsHash = new MyClosedHashImpl(100);
-    MyClosedHashImpl<String, User> userRegistryHash = new MyClosedHashImpl<>(20000);
-    MyClosedHashImpl2<LocalDate, Tweet> TweetRegistryHash = new MyClosedHashImpl2<>(200000);
+    MyClosedHashImpl<String, activePilot> activePilotsHash = new MyClosedHashImpl(40);
+    MyClosedHashImpl<String, User> userRegistryHash = new MyClosedHashImpl<>(180000);
+    MyClosedHashImpl2<LocalDate, Tweet> TweetRegistryHash = new MyClosedHashImpl2<>(960000);
 
-    MyArrayListImpl<Tweet> allTweetMyArrayList = new MyArrayListImpl<>(200000);
+    MyArrayListImpl<Tweet> allTweetMyArrayList = new MyArrayListImpl<>(640000);
 
 
     public void parse(){
