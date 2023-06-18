@@ -27,7 +27,7 @@ public class Main {
             System.out.print("Enter your choice: ");
 
             choice = scanner.nextInt();
-            scanner.nextLine(); // Consume the newline character
+            scanner.nextLine();
             String year;
             String month;
             String day;

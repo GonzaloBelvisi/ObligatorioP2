@@ -313,7 +313,7 @@ public class f1TweeterReport {
 
         for (int i = 0; i < allTweetMyArrayList.size(); i++) {
             Tweet currentTweet = this.allTweetMyArrayList.get(i);
-            if (currentTweet.getContent().contains(input)){Occurences++;}
+            if (currentTweet.getContent().contains(input.toLowerCase())){Occurences++;}
         }
 
         return Occurences;
