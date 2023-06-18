@@ -37,7 +37,7 @@ public class f1TweeterReport {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath1))) {
             String line;
             while ((line = br.readLine()) != null) {
-                // Procesamos cada linea del archivo de texto
+                // Procesamos cada linea del archivo de texto.
                 activePilotsHash.put(line, new activePilot(line));
             }
         }
