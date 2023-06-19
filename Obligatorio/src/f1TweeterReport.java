@@ -130,6 +130,7 @@ public class f1TweeterReport {
     private User[] top15_Users(){
         User[] Top15 = new User[15];
         QuickSort quickSort = new QuickSort();
+        Sort sort = new Sort();
 
         for (int i = 0; i < userRegistryHash.size(); i++){
             User userAt = userRegistryHash.getPosition(i);
@@ -140,7 +141,7 @@ public class f1TweeterReport {
 
             else if ((userAt.getNumberOfTweets()>Top15[0].getNumberOfTweets())){
                 Top15[0]=userAt;
-                quickSort.quickSort(Top15,new userTweetCountComparator());}
+                Sort.sortFirstElement(Top15,new userTweetCountComparator());}
         }
         return Top15;
     }
@@ -200,9 +201,11 @@ public class f1TweeterReport {
             Top20[j] = piloto;
         }
 
-        QuickSort quicksort = new QuickSort();// Sort the pilots based on occurrences
+        QuickSort quicksort = new QuickSort();
+
+
         quicksort.quickSort(Top20);
-        // Copy top 10 pilots to the final array
+
 
             int index1 = 0;
             int index2 = 10;
@@ -289,10 +292,10 @@ public class f1TweeterReport {
     private User[] top7_Users(){
         User[] Top7 = new User[7];
         QuickSort quickSort = new QuickSort();
+        Sort sort = new Sort();
 
         for (int i = 0; i < userRegistryHash.size(); i++){
             User userAt = userRegistryHash.getPosition(i);
-            userAt.setNumberOfFavourites(userAt.getNumberOfFavourites());
 
             if (i<7){
 
@@ -302,7 +305,7 @@ public class f1TweeterReport {
 
             else if ((userAt.getNumberOfFavourites()>Top7[0].getNumberOfFavourites())){
                 Top7[0]=userAt;
-                quickSort.quickSort(Top7, new userFavouriteComparator());}
+                sort.sortFirstElement(Top7, new userFavouriteComparator());}
         }
         return Top7;
     }

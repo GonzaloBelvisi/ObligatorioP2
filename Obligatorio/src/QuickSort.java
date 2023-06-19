@@ -8,19 +8,19 @@ public class QuickSort {
 
     public static <T> void quickSort(T[] array, Comparator<T> comparator) {
         if (array == null || array.length <= 1) {
-            return; // Base case: array is already sorted or empty
+            return;
         }
         quickSortRecursive(array, 0, array.length - 1, comparator);
     }
 
     private static <T> void quickSortRecursive(T[] array, int left, int right, Comparator<T> comparator) {
         if (left >= right) {
-            return; // Base case: subarray has less than two elements
+            return;
         }
 
         int pivotIndex = partition(array, left, right, comparator);
-        quickSortRecursive(array, left, pivotIndex - 1, comparator); // Sort elements smaller than the pivot
-        quickSortRecursive(array, pivotIndex + 1, right, comparator); // Sort elements larger than the pivot
+        quickSortRecursive(array, left, pivotIndex - 1, comparator);
+        quickSortRecursive(array, pivotIndex + 1, right, comparator);
     }
 
     private static <T> int partition(T[] array, int left, int right, Comparator<T> comparator) {
@@ -34,7 +34,7 @@ public class QuickSort {
             }
         }
 
-        swap(array, i + 1, right); // Place the pivot in its correct position
+        swap(array, i + 1, right);
         return i + 1;
     }
 
