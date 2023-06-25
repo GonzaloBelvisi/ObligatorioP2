@@ -20,16 +20,18 @@ public class MyArrayListImpl <T> implements MyArrayList<T> {
         if(value!=null) {
             if(size == length){
                 T[] newlist = (T[]) new Object[2*length];
-                length = 2*length;
+
                 for(int i = 0; i < size; i ++){
                     newlist[i] = list[i];
                 }
                 this.list = newlist;
+                length = 2*length;
+
             }
-            else{
+
                 list[size] = value;
                 size = size + 1;
-            }
+
         }
     }
 
@@ -75,5 +77,13 @@ public class MyArrayListImpl <T> implements MyArrayList<T> {
     @Override
     public int size() {
         return this.size;
+    }
+
+    public T[] getList() {
+        return list;
+    }
+
+    public void setList(T[] list) {
+        this.list = list;
     }
 }

@@ -15,16 +15,17 @@ public class Main {
 
 
         do {
+            System.out.println("");
             System.out.println("Menu:");
-            System.out.println("1. Option 1");
-            System.out.println("2. Option 2");
-            System.out.println("3. Option 3");
-            System.out.println("4. Option 4");
-            System.out.println("5. Option 5");
-            System.out.println("6. Option 6");
+            System.out.println("1. Imprimir 10 pilotos mas mencionados.");
+            System.out.println("2. Imprimir usaurios con mas tweets.");
+            System.out.println("3. Imprimir cantidad de hashtags distintos para el dia:");
+            System.out.println("4. Imprimir hashtag mas popular para el dia:");
+            System.out.println("5. Imprimir usaurios con mas favoritos.");
+            System.out.println("6. Cantidad de tweets con una palabra o frase específicos: ");
             System.out.println("7. Exit");
 
-            System.out.print("Enter your choice: ");
+            System.out.print("Ingrese su seleccion: ");
 
             choice = scanner.nextInt();
             scanner.nextLine();
@@ -33,7 +34,6 @@ public class Main {
             String day;
             switch (choice) {
                 case 1:
-                    System.out.println("Imprimir 10 pilotos mas mencionados.");
 
                     System.out.print(" - Ingresar año:");
                     int year1= scanner.nextInt();
@@ -51,7 +51,6 @@ public class Main {
 
                     break;
                 case 2:
-                    System.out.println("Imprimir usaurios con mas tweets.");
                     startTime = System.currentTimeMillis();
                     f1Registry.printTop15Users();
 
@@ -59,7 +58,6 @@ public class Main {
                     System.out.println("Program Initialization Time:" + ((endTime - startTime)/1000.0) +"s");
                     break;
                 case 3:
-                    System.out.println("Imprimir cantidad de hashtags distintos para el dia:");
 
                     System.out.print(" - Ingresar año /yyyy/:");
                     year= scanner.nextLine();
@@ -77,7 +75,6 @@ public class Main {
                     break;
 
                 case 4:
-                    System.out.println("Imprimir hashtag mas popular para el dia:");
 
                     System.out.print(" - Ingresar año:");
                     year= scanner.nextLine();
@@ -100,7 +97,6 @@ public class Main {
                     break;
 
                 case 5:
-                    System.out.println("Imprimir usaurios con mas favoritos.");
                     startTime = System.currentTimeMillis();
                     f1Registry.printTop7Users();
 
@@ -109,7 +105,6 @@ public class Main {
                     break;
 
                 case 6:
-                    System.out.println("Cantidad de tweets con una palabra o frase específicos: ");
                     System.out.print("Ingrese la palbra o frase: ");
                     String input = scanner.nextLine();
 

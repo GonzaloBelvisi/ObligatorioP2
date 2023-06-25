@@ -134,4 +134,22 @@ public class MyClosedHashImpl <K, V> implements MyHash<K, V> {
     public K ArrayListKey (int positionArrayList){
         return KeyList.get(positionArrayList);
     }
+
+    public boolean containsKey(K key) {
+        int aux = key.hashCode();
+        if (key.hashCode() < 0) {
+            aux = -key.hashCode();
+        }
+        int hash = aux % tableSize;
+
+        while (tableHash[hash] != null) {
+            if (tableHash[hash].getKey().equals(key) && !tableHash[hash].isDeleted()) {
+                return true;
+            }
+            hash = (hash + 1) % tableSize;
+        }
+
+        return false;
+    }
+
 }
