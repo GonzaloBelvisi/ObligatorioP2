@@ -15,11 +15,8 @@ import java.io.IOException;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.Calendar;
-import java.util.Date;
 
 
 public class f1TweeterReport {
@@ -32,8 +29,8 @@ public class f1TweeterReport {
 
 
     public void parse() {
-        String filePath1 = "C:\\Users\\tmuno\\OneDrive\\Escritorio\\Prog 2\\ObligatorioP2\\Obligatorio\\src\\Recursos\\drivers.txt";
-        String filePath2 = "C:\\Users\\tmuno\\OneDrive\\Escritorio\\Prog 2\\ObligatorioP2\\Obligatorio\\src\\Recursos\\f1_dataset.csv";
+        String filePath1 = "C:\\Users\\tmuno\\OneDrive\\Escritorio\\testeo de prog\\ObligatorioP2\\Obligatorio\\src\\Recursos\\drivers.txt";
+        String filePath2 = "C:\\Users\\tmuno\\OneDrive\\Escritorio\\testeo de prog\\ObligatorioP2\\Obligatorio\\src\\Recursos\\f1_dataset.csv";
 
 
         //Leer la file de texto
@@ -157,93 +154,93 @@ public class f1TweeterReport {
         return Top15;
     }
 
-/*
-    private MyArrayListImpl<Tweet> getTweetsByYearAndMonth(int year, int month) {
-        MyArrayListImpl<Tweet> matchingTweets = new MyArrayListImpl<>(20000);
+    /*
+        private MyArrayListImpl<Tweet> getTweetsByYearAndMonth(int year, int month) {
+            MyArrayListImpl<Tweet> matchingTweets = new MyArrayListImpl<>(20000);
 
-        for (int i = 0; i < allTweetMyArrayList.size(); i++) {
-            Tweet tweet = allTweetMyArrayList.get(i);
+            for (int i = 0; i < allTweetMyArrayList.size(); i++) {
+                Tweet tweet = allTweetMyArrayList.get(i);
 
-            ZoneId zoneId = ZoneId.systemDefault();
-            Date date = Date.from(tweet.getDate().atStartOfDay(zoneId).toInstant());
+                ZoneId zoneId = ZoneId.systemDefault();
+                Date date = Date.from(tweet.getDate().atStartOfDay(zoneId).toInstant());
 
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(date);
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(date);
 
-            int tweetMonth = calendar.get(Calendar.MONTH) + 1;
-            int tweetYear = calendar.get(Calendar.YEAR) ;
+                int tweetMonth = calendar.get(Calendar.MONTH) + 1;
+                int tweetYear = calendar.get(Calendar.YEAR) ;
 
 
-            if (tweetYear == year && tweetMonth == month) {
-                matchingTweets.add(tweet);
+                if (tweetYear == year && tweetMonth == month) {
+                    matchingTweets.add(tweet);
+                }
             }
-        }
 
-        return matchingTweets;
-    }
-
-
-
-    private activePilot[] top10_Pilotos2(int year, int month) {
-        Tweet currentTweet;
-        activePilot currentPilot;
-
-        activePilot[] top20Pilots =new activePilot[20];
-        activePilot[] top10Pilots =new activePilot[20];
-
-
-        MyArrayListImpl<Tweet> tweetsFromThatMonth = getTweetsByYearAndMonth(year,month);
-
-        for (int i = 0; i <tweetsFromThatMonth.size() ; i++) {
-
-            currentTweet = tweetsFromThatMonth.get(i);
-
-
-            for (int j = 0; j < activePilotsHash.size(); j++) {
-
-                activePilot piloto = activePilotsHash.getPosition(j);
-
-                if (j==i){top20Pilots[j]=piloto;}
-
-                String nombreApellido = piloto.getName();
-                String nombre;
-                String apellido;
-
-                    if (nombreApellido!="Nyck de Vries"){
-                        String [] arrayNombreApellido = nombreApellido.split(" ",2);
-                        nombre = arrayNombreApellido[0].toLowerCase();
-                        apellido = arrayNombreApellido[1].toLowerCase();}
-                    else {
-                        String [] arrayNombreApellido = nombreApellido.split(" ");
-                        nombre = arrayNombreApellido[0].replaceAll("\\s+", "").toLowerCase();
-                        apellido = arrayNombreApellido[1].replaceAll("\\s+", "").toLowerCase();}
-
-                if ( currentTweet.getContent().contains(nombre) || currentTweet.getContent().contains(apellido)) {
-                    activePilotsHash.get(nombreApellido).setNumberOfOccurences(piloto.getNumberOfOccurences()+1);
-
-                }}}
-        QuickSort quicksort = new QuickSort();
-
-
-        quicksort.quickSort(top20Pilots);
-
-
-        int index1 = 0;
-        int index2 = 10;
-        for (int i = 0; i <10 ; i++) {
-            top10Pilots[index1] = top20Pilots[index2];
-            index1++;
-            index2++;
-
-        }
-
-        System.out.println("Cantidad de tweets en el mes seleccionado:"+ tweetsFromThatMonth.size());
-        return top10Pilots;
+            return matchingTweets;
         }
 
 
 
-*/
+        private activePilot[] top10_Pilotos2(int year, int month) {
+            Tweet currentTweet;
+            activePilot currentPilot;
+
+            activePilot[] top20Pilots =new activePilot[20];
+            activePilot[] top10Pilots =new activePilot[20];
+
+
+            MyArrayListImpl<Tweet> tweetsFromThatMonth = getTweetsByYearAndMonth(year,month);
+
+            for (int i = 0; i <tweetsFromThatMonth.size() ; i++) {
+
+                currentTweet = tweetsFromThatMonth.get(i);
+
+
+                for (int j = 0; j < activePilotsHash.size(); j++) {
+
+                    activePilot piloto = activePilotsHash.getPosition(j);
+
+                    if (j==i){top20Pilots[j]=piloto;}
+
+                    String nombreApellido = piloto.getName();
+                    String nombre;
+                    String apellido;
+
+                        if (nombreApellido!="Nyck de Vries"){
+                            String [] arrayNombreApellido = nombreApellido.split(" ",2);
+                            nombre = arrayNombreApellido[0].toLowerCase();
+                            apellido = arrayNombreApellido[1].toLowerCase();}
+                        else {
+                            String [] arrayNombreApellido = nombreApellido.split(" ");
+                            nombre = arrayNombreApellido[0].replaceAll("\\s+", "").toLowerCase();
+                            apellido = arrayNombreApellido[1].replaceAll("\\s+", "").toLowerCase();}
+
+                    if ( currentTweet.getContent().contains(nombre) || currentTweet.getContent().contains(apellido)) {
+                        activePilotsHash.get(nombreApellido).setNumberOfOccurences(piloto.getNumberOfOccurences()+1);
+
+                    }}}
+            QuickSort quicksort = new QuickSort();
+
+
+            quicksort.quickSort(top20Pilots);
+
+
+            int index1 = 0;
+            int index2 = 10;
+            for (int i = 0; i <10 ; i++) {
+                top10Pilots[index1] = top20Pilots[index2];
+                index1++;
+                index2++;
+
+            }
+
+            System.out.println("Cantidad de tweets en el mes seleccionado:"+ tweetsFromThatMonth.size());
+            return top10Pilots;
+            }
+
+
+
+    */
     private activePilot[] top10_Pilotos(int year, int month) {
         activePilot[] Top10 = new activePilot[10];
         activePilot[] Top20 = new activePilot[20];
@@ -339,7 +336,13 @@ public class f1TweeterReport {
             }
         }
 
-        return hashtagRegistry.getKeyList().size()-1;
+        for (int i = 0; i < hashtagRegistry.size() ; i++) {
+            HashTag currentHashtag =hashtagRegistry.getPosition(i);
+                currentHashtag.setCount(0);
+
+        }
+
+        return hashtagRegistry.getKeyList().size();
     }
 
     private HashTag TopHashtag(String ano, String mes, String dia) {
@@ -377,9 +380,18 @@ public class f1TweeterReport {
         for (int i = 0; i <hashtagRegistry.size() ; i++) {
             HashTag currentHashTag= hashtagRegistry.getPosition(i);
             if ( currentHashTag.getCount() > hashtagNoOccurrences.getCount() && (!currentHashTag.getText().contains("f1")
-            &&(!currentHashTag.getText().contains("F1")))){
+                    &&(!currentHashTag.getText().contains("F1")))){
                 hashtagNoOccurrences = currentHashTag;
             }
+
+        }
+
+        for (int i = 0; i < hashtagRegistry.size() ; i++) {
+
+            HashTag currentHashtag =hashtagRegistry.getPosition(i);
+
+            if (!currentHashtag.equals(hashtagNoOccurrences)){
+            currentHashtag.setCount(0);}
 
         }
 
@@ -432,6 +444,7 @@ public class f1TweeterReport {
     public void printHashtagsMostReapeted(String ano, String mes, String dia){
         HashTag hashtag = TopHashtag(ano,mes,dia);
         System.out.println("Hastag mas popular: "+hashtag.getText() + "| Cantidad de ocurrencias: "+hashtag.getCount()+"|" );
+        hashtag.setCount(0);
     }
 
 
@@ -445,9 +458,9 @@ public class f1TweeterReport {
             else {verified = "Unverified";}
             System.out.println(
                     i+1+"." +
-                    " Username: "+ usuarios[index].getName() +
-                    "| Number of Tweets: " +usuarios[index].getNumberOfTweets() +
-                    "| User Status: "+ verified+"|") ;
+                            " Username: "+ usuarios[index].getName() +
+                            "| Number of Tweets: " +usuarios[index].getNumberOfTweets() +
+                            "| User Status: "+ verified+"|") ;
             index--;
 
         }

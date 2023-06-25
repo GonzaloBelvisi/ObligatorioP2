@@ -4,10 +4,10 @@ import java.util.Objects;
 
 public class HashTag {
 
-        private long id;
-        private String text;
+    private long id;
+    private String text;
 
-        private int count;
+    private int count;
 
 
 
