@@ -29,8 +29,8 @@ public class f1TweeterReport {
 
 
     public void parse() {
-        String filePath1 = "C:\\Users\\tmuno\\OneDrive\\Escritorio\\testeo de prog\\ObligatorioP2\\Obligatorio\\src\\Recursos\\drivers.txt";
-        String filePath2 = "C:\\Users\\tmuno\\OneDrive\\Escritorio\\testeo de prog\\ObligatorioP2\\Obligatorio\\src\\Recursos\\f1_dataset.csv";
+        String filePath1 = "Copy PATH: ObligatorioP2\\Obligatorio\\src\\Recursos\\drivers.txt";
+        String filePath2 = "Copy PATH: ObligatorioP2\\Obligatorio\\src\\Recursos\\f1_dataset.csv";
 
 
         //Leer la file de texto
